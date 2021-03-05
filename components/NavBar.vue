@@ -91,14 +91,14 @@
         </span>
 
         <ul class="divide-y font-sans">
-          <li v-for="(link, i) in menuLinks" :key="i">
+          <li v-for="(link, i) in menuLinks" :key="i" @click="isOpen = false">
             <n-link :to="link.to" class="my-4 inline-block">{{
               link.name
             }}</n-link>
           </li>
         </ul>
 
-        <div class="follow">
+        <!-- <div class="follow">
           <p class="italic font-sans text-sm">follow us:</p>
           <div class="social flex space-x-5 mt-4">
             <a href="#">
@@ -169,8 +169,8 @@
                 ></path>
               </svg>
             </a>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
       </aside>
     </div>
   </nav>
