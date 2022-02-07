@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12",
-    "nuxt-highcharts": "^1.0.7"
+    "nuxt": "^2.15",
+    "nuxt-highcharts": "^2.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
