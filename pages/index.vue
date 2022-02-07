@@ -70,7 +70,7 @@ export default {
           height: '80%',
         },
         title: {
-          text: '',
+          text: 'Index',
         },
         series: [
           {
