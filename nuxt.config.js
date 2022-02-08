@@ -35,6 +35,10 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['nuxt-highcharts'],
 
+  highcharts: {
+    exporting: true,
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 }
