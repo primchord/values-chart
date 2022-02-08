@@ -3,6 +3,7 @@
     <highchart
       :options="chartOptions"
       :update="['options.title', 'options.series']"
+      :modules="['exporting']"
       more
     />
   </div>

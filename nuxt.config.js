@@ -6,7 +6,7 @@ export default {
   head: {
     title: 'values-chart',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'ja',
     },
     meta: [
       { charset: 'utf-8' },
