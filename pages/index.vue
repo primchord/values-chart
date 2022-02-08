@@ -80,15 +80,15 @@ export default {
                 // name property is used for the datalabel
                 // value property is used for the volume of the bubble
                 value: 12,
-                name: 'Bert',
+                name: 'パン',
               },
               {
                 value: 5,
-                name: 'John',
+                name: 'ジョン',
               },
               {
                 value: 10,
-                name: 'Sandra',
+                name: 'サラダ',
               },
               {
                 value: 7,
