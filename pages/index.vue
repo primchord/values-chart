@@ -1,5 +1,21 @@
 <template>
   <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>価値観</th>
+          <th>レベル</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(user, index) in users" v-bind:key="user.id">
+          <td><input v-model="user.value" /></td>
+          <td><input v-model="user.level" /></td>
+          <td><button v-on:click="del(index)">削除</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <button v-on:click="add">行を追加</button>
     <highchart
       :options="chartOptions"
       :update="['options.title', 'options.series']"
@@ -13,6 +29,7 @@
 export default {
   data() {
     return {
+      users: [{ value: '', level: '' }],
       chartOptions: {
         tooltip: {
           useHTML: true,
@@ -122,6 +139,14 @@ export default {
         ],
       },
     }
+  },
+  methods: {
+    add: function () {
+      this.users.push({ value: '', level: '' })
+    },
+    del: function (index) {
+      this.users.splice(index, 1)
+    },
   },
 }
 </script>
