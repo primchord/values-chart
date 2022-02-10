@@ -1,6 +1,14 @@
 <template>
   <div class="mx-10 md:flex divide-x divide-gray-200">
-    <div class="p6">
+    <div class="mx-10">
+      <div class="justify-center">
+        お名前：
+        <input
+          v-model="userName"
+          class="border-b-2 bg-transparent mt-1 mb-6"
+          type="text"
+        />
+      </div>
       <table class="table-fixed">
         <thead>
           <tr>
@@ -14,7 +22,7 @@
             </th>
             <th>
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-1"
                 for="grid-first-name"
               >
                 レベル
@@ -22,7 +30,7 @@
             </th>
             <th>
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-1"
                 for="grid-first-name"
               >
                 削除
@@ -34,7 +42,7 @@
           <tr v-for="(user, index) in users" :key="user.id">
             <td>
               <input
-                v-model="user.value"
+                v-model="user.data.name"
                 type="text"
                 required
                 maxlength="8"
@@ -43,8 +51,8 @@
             </td>
             <td>
               <select
-                v-model="user.level"
-                class="w-20 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                v-model.number="user.data.value"
+                class="w-20 ml-1 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 @change="onChange"
               >
                 <option value="1">1</option>
@@ -57,7 +65,7 @@
             </td>
             <td>
               <button
-                class="bg-transparent focus:shadow-outline focus:outline-none text-black font-bold py-2 px-4 rounded"
+                class="bg-transparent focus:shadow-outline focus:outline-none text-black font-bold py-2 px-4 ml-1 rounded"
                 type="button"
                 @click="del(index)"
               >
@@ -74,33 +82,38 @@
         行を追加
       </button>
     </div>
-    <div><map-view /></div>
+    <div class="mx-auto">
+      <map-view :name="userName" :users="users" />
+    </div>
   </div>
 </template>
 
 <script>
-import MapView from '../components/MapView.vue'
+// import MapView from '../components/MapView.vue'
 export default {
-  components: { MapView },
+  // components: { MapView },
   data() {
     return {
+      userName: '',
       users: [
         {
-          value: '',
-          level: '',
+          data: {
+            name: '',
+            value: Number,
+          },
         },
       ],
     }
   },
   methods: {
     add() {
-      this.users.push({ value: '', level: '' })
+      this.users.data.push({ name: '', value: Number })
     },
     del(index) {
-      this.users.splice(index, 1)
+      this.users.data.splice(index, 1)
     },
     onChange(value) {
-      this.users.level = value.target.value
+      this.users.data.value = Number(value.target.value)
     },
   },
 }
