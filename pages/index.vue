@@ -39,10 +39,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(user, index) in users" :key="user.id">
+          <tr v-for="(point, index) in points" :key="point.index">
             <td>
               <input
-                v-model="user.data.name"
+                v-model="point.name"
                 type="text"
                 required
                 maxlength="8"
@@ -51,7 +51,7 @@
             </td>
             <td>
               <select
-                v-model.number="user.data.value"
+                v-model.number="point.value"
                 class="w-20 ml-1 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 @change="onChange"
               >
@@ -83,48 +83,78 @@
       </button>
     </div>
     <div class="mx-auto">
-      <map-view :name="userName" :users="users" />
+      <highchart :options="chartOptions" :modules="['exporting']" more />
     </div>
   </div>
 </template>
 
 <script>
-// import MapView from '../components/MapView.vue'
 export default {
-  // components: { MapView },
   data() {
     return {
-      userName: '',
-      users: [
+      points: [
         {
-          data: {
-            name: '',
-            value: Number,
-          },
+          name: '',
+          value: Number,
         },
       ],
+      userName: '',
     }
+  },
+  computed: {
+    chartOptions() {
+      return {
+        tooltip: {
+          useHTML: true,
+          pointFormat: '<b>{point.name}:</b> {point.value}',
+        },
+        plotOptions: {
+          packedbubble: {
+            minSize: '20%',
+            maxSize: '100%',
+            zMin: 1,
+            zMax: 10,
+            layoutAlgorithm: {
+              splitSeries: false,
+              gravitationalConstant: 0.02,
+            },
+            dataLabels: {
+              enabled: true,
+              format: '{point.name}',
+              style: {
+                color: 'black',
+                textOutline: 'none',
+                fontWeight: 'bold',
+              },
+            },
+            minPointSize: 5,
+          },
+        },
+        chart: {
+          type: 'packedbubble',
+          height: '80%',
+        },
+        title: {
+          text: `${this.userName}の価値観`,
+        },
+        series: [
+          {
+            data: this.points,
+          },
+        ],
+      }
+    },
   },
   methods: {
     add() {
-      this.users.data.push({ name: '', value: Number })
+      this.points.push({ name: '', value: Number })
     },
     del(index) {
-      this.users.data.splice(index, 1)
+      this.points.splice(index, 1)
     },
-    onChange(value) {
-      this.users.data.value = Number(value.target.value)
+    onChange(level) {
+      this.points.value = Number(level.target.value)
     },
   },
 }
 </script>
-<style>
-/* .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-} */
-</style>
