@@ -20,7 +20,7 @@
                 価値観
               </label>
             </th>
-            <th>
+            <!-- <th>
               <label
                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-1"
                 for="grid-first-name"
@@ -35,21 +35,20 @@
               >
                 削除
               </label>
-            </th>
+            </th> -->
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(point, index) in points" :key="point.index">
+          <tr>
             <td>
               <input
-                v-model="point.name"
+                v-model="point1.name"
                 type="text"
-                required
-                maxlength="8"
+                maxlength="50"
                 class="w-40 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               />
             </td>
-            <td>
+            <!-- <td>
               <select
                 v-model.number="point.value"
                 class="w-20 ml-1 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -61,7 +60,7 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
-              <!-- <input type="number" maxlength="10" required v-model="user.level" /> -->
+              <input type="number" maxlength="10" required v-model="user.level" />
             </td>
             <td>
               <button
@@ -72,6 +71,7 @@
                 ✖
               </button>
             </td>
+            -->
           </tr>
         </tbody>
       </table>
@@ -79,11 +79,16 @@
         class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline text-xs font-bold leading-tight focus:outline-none text-white font-bold mt-2 py-2 px-3 rounded"
         @click="add"
       >
-        行を追加
+        描画
       </button>
     </div>
     <div class="mx-auto">
-      <highchart :options="chartOptions" :modules="['exporting']" more />
+      <highchart
+        :options="chartOptions"
+        :set-options="setOptions"
+        :modules="['exporting']"
+        more
+      />
     </div>
   </div>
 </template>
@@ -92,13 +97,29 @@
 export default {
   data() {
     return {
-      points: [
+      point1: [
         {
-          name: '',
-          value: Number,
+          data: {
+            name: '',
+            value: 1,
+            backgroundColor: 'black',
+          },
         },
       ],
       userName: '',
+      setOptions: {
+        colors: [
+          '#058DC7',
+          '#50B432',
+          '#ED561B',
+          '#DDDF00',
+          '#24CBE5',
+          '#64E572',
+          '#FF9655',
+          '#FFF263',
+          '#6AF9C4',
+        ],
+      },
     }
   },
   computed: {
@@ -139,22 +160,23 @@ export default {
         },
         series: [
           {
-            data: this.points,
+            name: 'level1',
+            data: this.point1,
           },
         ],
       }
     },
   },
   methods: {
-    add() {
-      this.points.push({ name: '', value: Number })
-    },
-    del(index) {
-      this.points.splice(index, 1)
-    },
-    onChange(level) {
-      this.points.value = Number(level.target.value)
-    },
+    // add() {
+    //   this.points.push({ name: '', value: Number })
+    // },
+    // del(index) {
+    //   this.points.splice(index, 1)
+    // },
+    // onChange(level) {
+    //   this.points.value = Number(level.target.value)
+    // },
   },
 }
 </script>
