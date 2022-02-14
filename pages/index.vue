@@ -93,7 +93,10 @@ export default {
   data() {
     return {
       point1: [],
-      points: [],
+      point2: [],
+      point3: [],
+      point4: [],
+      point5: [],
       levels: [
         {
           name: '',
@@ -206,7 +209,6 @@ export default {
     // },
     view() {
       this.point1 = []
-      this.points = []
       const varri = this.levels[0].name.split(' ')
 
       for (let i = 0; i < varri.length; i++) {
