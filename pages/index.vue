@@ -40,11 +40,11 @@
         </thead>
         <tbody>
           <tr>
-            <td>
+            <td v-for="(level, i) in levels" :key="i">
               <input
-                v-model="point1.name"
+                v-model="level.name"
                 type="text"
-                maxlength="50"
+                maxlength="100"
                 class="w-40 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               />
             </td>
@@ -76,19 +76,14 @@
         </tbody>
       </table>
       <button
+        @click="view"
         class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline text-xs font-bold leading-tight focus:outline-none text-white font-bold mt-2 py-2 px-3 rounded"
-        @click="add"
       >
         描画
       </button>
     </div>
     <div class="mx-auto">
-      <highchart
-        :options="chartOptions"
-        :set-options="setOptions"
-        :modules="['exporting']"
-        more
-      />
+      <highchart :options="chartOptions" :modules="['exporting']" more />
     </div>
   </div>
 </template>
@@ -97,13 +92,23 @@
 export default {
   data() {
     return {
-      point1: [
+      point1: [],
+      points: [],
+      levels: [
         {
-          data: {
-            name: '',
-            value: 1,
-            backgroundColor: 'black',
-          },
+          name: '',
+        },
+        {
+          name: '',
+        },
+        {
+          name: '',
+        },
+        {
+          name: '',
+        },
+        {
+          name: '',
         },
       ],
       userName: '',
@@ -162,10 +167,32 @@ export default {
           {
             name: 'level1',
             data: this.point1,
+            // data: [{ name: 'okane', value: 1 }, { name: 'nakama' }],
+          },
+          {
+            name: 'level2',
+            data: this.point2,
+          },
+          {
+            name: 'level3',
+            data: this.point3,
+          },
+          {
+            name: 'level4',
+            data: this.point4,
+          },
+          {
+            name: 'level5',
+            data: this.point5,
           },
         ],
       }
     },
+    // view(){
+    //   return{
+    //     this.array1 = this.points[0].name.split(' '),
+    //   }
+    // }
   },
   methods: {
     // add() {
@@ -177,6 +204,19 @@ export default {
     // onChange(level) {
     //   this.points.value = Number(level.target.value)
     // },
+    view() {
+      this.point1 = []
+      this.points = []
+      const varri = this.levels[0].name.split(' ')
+
+      for (let i = 0; i < varri.length; i++) {
+        this.point1.push(varri.slice(i, i + 1))
+      }
+
+      this.point1.forEach(function (res) {
+        res.push(1)
+      })
+    },
   },
 }
 </script>
