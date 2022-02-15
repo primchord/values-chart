@@ -1,50 +1,52 @@
 <template>
-  <div class="mx-10 md:flex divide-x divide-gray-200">
-    <div class="mx-10 mt-7">
-      <div class="justify-center">
-        お名前：
-        <input
-          v-model="userName"
-          class="appearance-none border-b-2 bg-transparent mt-1 mb-6"
-          type="text"
-        />
-      </div>
-      <table class="table-fixed">
-        <thead>
-          <tr>
-            <th>
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold ml-1"
-                for="grid-first-name"
-              >
-                価値観
-              </label>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td v-for="(level, i) in levels" :key="i" class="flex flex-col">
-              {{ level.value }}:<input
-                v-model="level.name"
-                type="text"
-                maxlength="100"
-                class="w-80 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 mb-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="flex justify-end">
-        <button
-          class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline text-xs font-bold leading-tight focus:outline-none text-white font-bold mt-2 py-2 px-3 rounded"
-          @click="view"
-        >
-          描 画
-        </button>
+  <div class="md:flex md:mx-1 divide-x divide-gray-200">
+    <div class="lg:flex lg:justify-end">
+      <div class="mx-10 mt-7 md:mx-2 lg:w-1/3">
+        <div>
+          お名前：
+          <input
+            v-model="userName"
+            class="appearance-none border-b-2 bg-transparent mt-1 mb-6"
+            type="text"
+          />
+        </div>
+        <table class="table-fixed w-full md:w-80">
+          <thead class="w-full md:w-80">
+            <tr>
+              <th>
+                <label
+                  class="sm:w-full block uppercase tracking-wide text-gray-700 text-xs font-bold ml-1"
+                  for="grid-first-name"
+                >
+                  価値観
+                </label>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td v-for="(level, i) in levels" :key="i" class="flex flex-col">
+                {{ level.value }}:<input
+                  v-model="level.name"
+                  type="text"
+                  maxlength="100"
+                  class="sm:w-full block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 mb-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="flex justify-end">
+          <button
+            class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline text-xs font-bold leading-tight focus:outline-none text-white font-bold mt-2 py-2 px-3 rounded"
+            @click="view"
+          >
+            描 画
+          </button>
+        </div>
       </div>
     </div>
-    <div class="mx-auto">
+    <div class="mx-auto lg:w-1/3">
       <highchart :options="chartOptions" :modules="['exporting']" more />
     </div>
   </div>
