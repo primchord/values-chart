@@ -111,17 +111,17 @@ export default {
         {
           to: '/',
           path: 'index',
-          name: 'Home',
-        },
-        {
-          to: '/about',
-          path: 'about',
-          name: 'About',
+          name: 'ホーム',
         },
         {
           to: '/usage',
           path: 'usage',
-          name: 'Usage',
+          name: '使い方',
+        },
+        {
+          to: '/about',
+          path: 'about',
+          name: '当サービスについて',
         },
       ],
       menuBorderCSS: ['border-b-2', 'border-blue-500', 'pb-1'],

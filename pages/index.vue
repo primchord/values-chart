@@ -1,11 +1,11 @@
 <template>
   <div class="mx-10 md:flex divide-x divide-gray-200">
-    <div class="mx-10">
+    <div class="mx-10 mt-7">
       <div class="justify-center">
         お名前：
         <input
           v-model="userName"
-          class="border-b-2 bg-transparent mt-1 mb-6"
+          class="appearance-none border-b-2 bg-transparent mt-1 mb-6"
           type="text"
         />
       </div>
@@ -14,73 +14,35 @@
           <tr>
             <th>
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold ml-1"
                 for="grid-first-name"
               >
                 価値観
               </label>
             </th>
-            <!-- <th>
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-1"
-                for="grid-first-name"
-              >
-                レベル
-              </label>
-            </th>
-            <th>
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 ml-1"
-                for="grid-first-name"
-              >
-                削除
-              </label>
-            </th> -->
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td v-for="(level, i) in levels" :key="i">
-              <input
+            <td v-for="(level, i) in levels" :key="i" class="flex flex-col">
+              {{ level.value }}:<input
                 v-model="level.name"
                 type="text"
                 maxlength="100"
-                class="w-40 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                class="w-80 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 mb-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               />
             </td>
-            <!-- <td>
-              <select
-                v-model.number="point.value"
-                class="w-20 ml-1 block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                @change="onChange"
-              >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <input type="number" maxlength="10" required v-model="user.level" />
-            </td>
-            <td>
-              <button
-                class="bg-transparent focus:shadow-outline focus:outline-none text-black font-bold py-2 px-4 ml-1 rounded"
-                type="button"
-                @click="del(index)"
-              >
-                ✖
-              </button>
-            </td>
-            -->
           </tr>
         </tbody>
       </table>
-      <button
-        class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline text-xs font-bold leading-tight focus:outline-none text-white font-bold mt-2 py-2 px-3 rounded"
-        @click="view"
-      >
-        描画
-      </button>
+      <div class="flex justify-end">
+        <button
+          class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline text-xs font-bold leading-tight focus:outline-none text-white font-bold mt-2 py-2 px-3 rounded"
+          @click="view"
+        >
+          描 画
+        </button>
+      </div>
     </div>
     <div class="mx-auto">
       <highchart :options="chartOptions" :modules="['exporting']" more />
@@ -100,18 +62,23 @@ export default {
       levels: [
         {
           name: '',
+          value: 'Lv1',
         },
         {
           name: '',
+          value: 'Lv2',
         },
         {
           name: '',
+          value: 'Lv3',
         },
         {
           name: '',
+          value: 'Lv4',
         },
         {
           name: '',
+          value: 'Lv5',
         },
       ],
       userName: '',
@@ -170,7 +137,6 @@ export default {
           {
             name: 'level1',
             data: this.point1,
-            // data: [{ name: 'okane', value: 1 }, { name: 'nakama' }],
           },
           {
             name: 'level2',
@@ -193,15 +159,6 @@ export default {
     },
   },
   methods: {
-    // add() {
-    //   this.points.push({ name: '', value: Number })
-    // },
-    // del(index) {
-    //   this.points.splice(index, 1)
-    // },
-    // onChange(level) {
-    //   this.points.value = Number(level.target.value)
-    // },
     listSplit(i) {
       return this.levels[i].name.split(' ')
     },
@@ -213,11 +170,21 @@ export default {
       return nameArray
     },
     view() {
-      this.makeArray(this.point1, 0).then((value) => (this.point1 = value))
-      this.makeArray(this.point2, 1).then((value) => (this.point2 = value))
-      this.makeArray(this.point3, 2).then((value) => (this.point3 = value))
-      this.makeArray(this.point4, 3).then((value) => (this.point4 = value))
-      this.makeArray(this.point5, 4).then((value) => (this.point5 = value))
+      if (this.levels[0].name !== '') {
+        this.makeArray(this.point1, 0).then((value) => (this.point1 = value))
+      }
+      if (this.levels[1].name !== '') {
+        this.makeArray(this.point2, 1).then((value) => (this.point2 = value))
+      }
+      if (this.levels[2].name !== '') {
+        this.makeArray(this.point3, 2).then((value) => (this.point3 = value))
+      }
+      if (this.levels[3].name !== '') {
+        this.makeArray(this.point4, 3).then((value) => (this.point4 = value))
+      }
+      if (this.levels[4].name !== '') {
+        this.makeArray(this.point5, 4).then((value) => (this.point5 = value))
+      }
     },
   },
 }
