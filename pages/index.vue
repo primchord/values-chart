@@ -135,23 +135,23 @@ export default {
         },
         series: [
           {
-            name: 'level1',
+            name: 'Lv1',
             data: this.point1,
           },
           {
-            name: 'level2',
+            name: 'Lv2',
             data: this.point2,
           },
           {
-            name: 'level3',
+            name: 'Lv3',
             data: this.point3,
           },
           {
-            name: 'level4',
+            name: 'Lv4',
             data: this.point4,
           },
           {
-            name: 'level5',
+            name: 'Lv5',
             data: this.point5,
           },
         ],

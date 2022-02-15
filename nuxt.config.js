@@ -33,7 +33,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['nuxt-highcharts'],
+  modules: ['nuxt-highcharts', '@nuxtjs/google-gtag'],
+  'google-gtag': {
+    id: 'G-8XJPJ7BH3K',
+    debug: true, // Enable to track in dev mode.
+  },
 
   highcharts: {
     exporting: true,
