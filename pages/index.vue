@@ -172,18 +172,28 @@ export default {
     view() {
       if (this.levels[0].name !== '') {
         this.makeArray(this.point1, 0).then((value) => (this.point1 = value))
+      } else {
+        this.point1 = []
       }
       if (this.levels[1].name !== '') {
         this.makeArray(this.point2, 1).then((value) => (this.point2 = value))
+      } else {
+        this.point2 = []
       }
       if (this.levels[2].name !== '') {
         this.makeArray(this.point3, 2).then((value) => (this.point3 = value))
+      } else {
+        this.point3 = []
       }
       if (this.levels[3].name !== '') {
         this.makeArray(this.point4, 3).then((value) => (this.point4 = value))
+      } else {
+        this.point4 = []
       }
       if (this.levels[4].name !== '') {
         this.makeArray(this.point5, 4).then((value) => (this.point5 = value))
+      } else {
+        this.point5 = []
       }
     },
   },
