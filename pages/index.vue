@@ -76,8 +76,8 @@
         </tbody>
       </table>
       <button
-        @click="view"
         class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline text-xs font-bold leading-tight focus:outline-none text-white font-bold mt-2 py-2 px-3 rounded"
+        @click="view"
       >
         描画
       </button>
@@ -191,11 +191,6 @@ export default {
         ],
       }
     },
-    // view(){
-    //   return{
-    //     this.array1 = this.points[0].name.split(' '),
-    //   }
-    // }
   },
   methods: {
     // add() {
@@ -207,17 +202,22 @@ export default {
     // onChange(level) {
     //   this.points.value = Number(level.target.value)
     // },
+    listSplit(i) {
+      return this.levels[i].name.split(' ')
+    },
+    async makeArray(nameArray, index) {
+      nameArray = []
+      const data = await this.listSplit(index)
+      data.forEach((elm, i) => nameArray.push(data.slice(i, i + 1)))
+      nameArray.forEach((res) => res.push(index + 1))
+      return nameArray
+    },
     view() {
-      this.point1 = []
-      const varri = this.levels[0].name.split(' ')
-
-      for (let i = 0; i < varri.length; i++) {
-        this.point1.push(varri.slice(i, i + 1))
-      }
-
-      this.point1.forEach(function (res) {
-        res.push(1)
-      })
+      this.makeArray(this.point1, 0).then((value) => (this.point1 = value))
+      this.makeArray(this.point2, 1).then((value) => (this.point2 = value))
+      this.makeArray(this.point3, 2).then((value) => (this.point3 = value))
+      this.makeArray(this.point4, 3).then((value) => (this.point4 = value))
+      this.makeArray(this.point5, 4).then((value) => (this.point5 = value))
     },
   },
 }
