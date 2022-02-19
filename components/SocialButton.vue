@@ -5,14 +5,14 @@
     </div>
     <div class="flex justify-center">
       <a :href="twitterURL" target="_blank" rel="noopener noreferrer"
-        ><button class="mr-5 text-blue-500">TWITTER</button></a
+        ><button class="mr-4 md:mr-5 text-blue-500">TWITTER</button></a
       >
       <a :href="facebookURL" target="_blank" rel="noopener noreferrer"
-        ><button class="mx-5 text-blue-800">FACEBOOK</button></a
+        ><button class="mr-4 md:mx-5 text-blue-800">FACEBOOK</button></a
       >
 
       <a :href="lineURL" target="_blank" rel="noopener noreferrer"
-        ><button class="mx-5 text-green-800">LINE</button></a
+        ><button class="mr-4 md:mx-5 text-green-800">LINE</button></a
       >
     </div>
   </div>

@@ -6,7 +6,7 @@
           お名前：
           <input
             v-model="userName"
-            class="appearance-none border-b-2 bg-transparent mt-1 mb-6"
+            class="border-b-2 bg-transparent mt-1 mb-6"
             type="text"
           />
         </div>
