@@ -36,7 +36,8 @@ export default {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: 'あなたの価値観を5段階で可視化する無料のWebサービスです。',
+        content:
+          'あなたの価値観を5段階で可視化する無料のWebアプリです。自己理解・価値観を深堀りするワーク等にご利用ください。',
       },
       {
         hid: 'og:image',
