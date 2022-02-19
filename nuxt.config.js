@@ -42,7 +42,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://value.chord4me.info/logo.png',
+        content: 'https://value.chord4me.info/favicon.png',
       },
       { name: 'twitter:card', content: 'summary' }, // twitterの画像サイズ
     ],
