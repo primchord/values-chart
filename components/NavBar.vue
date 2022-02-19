@@ -1,11 +1,9 @@
 <template>
   <nav class="container w-full p-6 bg-transparent">
-    <div class="flex items-center">
-      <!-- Header logo -->
+    <div class="flex items-end">
       <div>
-        <Tailwind />
+        <img class="md:ml-2 max-h-12" src="logo.png" />
       </div>
-      <!-- <div class="flex items-center"> -->
       <!-- Mobile toggle -->
       <div class="md:hidden items-center ml-auto">
         <button @click="drawer">
@@ -22,7 +20,6 @@
           </svg>
         </button>
       </div>
-      <!-- </div> -->
 
       <!-- Navbar -->
       <div class="hidden md:block ml-20">
@@ -87,7 +84,9 @@
           class="flex w-full items-center p-4 border-b"
           @click="isOpen = false"
         >
-          <Tailwind />
+          <div>
+            <img class="max-h-8" src="logo.png" />
+          </div>
         </span>
 
         <ul class="divide-y font-sans">
@@ -121,7 +120,7 @@ export default {
         {
           to: '/about',
           path: 'about',
-          name: '当サービスについて',
+          name: 'このアプリについて',
         },
       ],
       menuBorderCSS: ['border-b-2', 'border-blue-500', 'pb-1'],
@@ -138,11 +137,6 @@ export default {
       },
     },
   },
-  // mounted() {
-  //   document.addEventListener('keydown', (e) => {
-  //     if (e.keyCode == 27 && this.isOpen) this.isOpen = false
-  //   })
-  // },
   methods: {
     drawer() {
       this.isOpen = !this.isOpen

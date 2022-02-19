@@ -1,7 +1,7 @@
 <template>
-  <div class="md:flex md:mx-1 divide-x divide-gray-200">
-    <div class="lg:flex lg:justify-end">
-      <div class="mx-10 mt-7 md:mx-2 lg:w-1/3">
+  <div class="lg:flex md:mt-5 md:mx-1 md:divide-x md:divide-gray-200">
+    <div class="lg:flex lg:w-1/3">
+      <div class="mx-10 mt-7">
         <div>
           お名前：
           <input
@@ -10,7 +10,7 @@
             type="text"
           />
         </div>
-        <table class="table-fixed w-full md:w-80">
+        <table class="table-fixed w-full md:w-100">
           <thead class="w-full md:w-80">
             <tr>
               <th>
@@ -30,7 +30,8 @@
                   v-model="level.name"
                   type="text"
                   maxlength="100"
-                  class="sm:w-full block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 mb-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  :class="level.color"
+                  class="sm:w-full block appearance-none border border-gray-200 text-gray-700 py-2 px-4 mb-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 />
               </td>
             </tr>
@@ -46,8 +47,13 @@
         </div>
       </div>
     </div>
-    <div class="mx-auto lg:w-1/3">
-      <highchart :options="chartOptions" :modules="['exporting']" more />
+    <div class="mx-10 lg:w-2/3 mt-7 lg:mt-0">
+      <highchart
+        :options="chartOptions"
+        :set-options="setOptions"
+        :modules="['exporting']"
+        more
+      />
     </div>
   </div>
 </template>
@@ -65,36 +71,41 @@ export default {
         {
           name: '',
           value: 'Lv1',
+          color: 'bg-blue-200',
         },
         {
           name: '',
           value: 'Lv2',
+          color: 'bg-green-200',
         },
         {
           name: '',
           value: 'Lv3',
+          color: 'bg-orange-200',
         },
         {
           name: '',
           value: 'Lv4',
+          color: 'bg-yellow-100',
         },
         {
           name: '',
           value: 'Lv5',
+          color: 'bg-pink-100',
         },
       ],
       userName: '',
       setOptions: {
         colors: [
-          '#058DC7',
-          '#50B432',
-          '#ED561B',
+          '#93C5FD',
+          '#4ADE80',
+          '#FB923C',
           '#DDDF00',
-          '#24CBE5',
-          '#64E572',
-          '#FF9655',
-          '#FFF263',
-          '#6AF9C4',
+          '#F9A8D4',
+          // '#64E572',
+          // '#FF9655',
+          // '#FFF263',
+          // '#6AF9C4',
         ],
       },
     }
@@ -130,7 +141,7 @@ export default {
         },
         chart: {
           type: 'packedbubble',
-          height: '80%',
+          height: '70%',
         },
         title: {
           text: `${this.userName}の価値観`,
@@ -161,8 +172,11 @@ export default {
     },
   },
   methods: {
+    changeSpace(i) {
+      return this.levels[i].name.replace(/\u3000/g, ' ') // 全角スペース変換
+    },
     listSplit(i) {
-      return this.levels[i].name.split(' ')
+      return this.changeSpace(i).split(' ')
     },
     async makeArray(nameArray, index) {
       nameArray = []
