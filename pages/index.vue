@@ -39,7 +39,7 @@
         </table>
         <div class="flex justify-end">
           <button
-            class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline text-xs font-bold leading-tight focus:outline-none text-white font-bold mt-2 py-2 px-3 rounded"
+            class="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline text-xs leading-tight focus:outline-none text-white font-bold mt-2 py-2 px-3 rounded"
             @click="view"
           >
             描 画
@@ -142,6 +142,9 @@ export default {
         chart: {
           type: 'packedbubble',
           height: '70%',
+          style: {
+            fontFamily: 'Kiwi Maru',
+          },
         },
         title: {
           text: `${this.userName}の価値観`,
