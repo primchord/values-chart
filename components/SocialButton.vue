@@ -26,7 +26,7 @@ export default {
   data: () => ({
     url: 'https://value.chord4me.info/',
     title: '価値観マップ-ValuesChart-',
-    tags: '価値観,自己理解,可視化',
+    tags: '価値観,自己理解,可視化,言語化,自分軸',
   }),
   computed: {
     fixedContent() {

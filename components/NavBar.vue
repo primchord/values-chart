@@ -2,7 +2,7 @@
   <nav class="container w-full p-6 bg-transparent">
     <div class="flex items-end">
       <div>
-        <img class="md:ml-2 max-h-12" src="logo.png" />
+        <n-link to="/"><img class="md:ml-2 max-h-12" src="logo.png" /></n-link>
       </div>
       <!-- Mobile toggle -->
       <div class="md:hidden items-center ml-auto">
