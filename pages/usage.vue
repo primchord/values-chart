@@ -3,7 +3,7 @@
     <section>
       <h2 class="text-2xl">使い方は簡単です！</h2>
       <ol class="mb-5">
-        <li>お名前を入力</li>
+        <li>お名前を入力（未入力可）</li>
         <li>価値観を入力</li>
         <li>描画ボタン押下</li>
       </ol>
