@@ -79,7 +79,11 @@
     <section>
       <h2 class="mt-16 text-2xl">お問い合わせ</h2>
       <p>
-        アプリに関するお問い合わせや、価値観言語化のサポートが必要な方は、こちらからご連絡ください。
+        当アプリに関するお問い合わせや、価値観言語化のサポートが必要な方は、<n-link
+          class="text-blue-800 font-bold"
+          to="/contact"
+          >こちらから</n-link
+        >ご連絡ください。
       </p>
     </section>
   </div>
