@@ -3,7 +3,10 @@
     <div class="flex items-end">
       <div>
         <n-link to="/"
-          ><img class="md:ml-2 max-h-12" src="logo.png" alt="タイトルロゴ画像"
+          ><img
+            class="md:ml-2 max-h-12"
+            src="~/assets/images/logo.png"
+            alt="タイトルロゴ画像"
         /></n-link>
       </div>
       <!-- Mobile toggle -->
