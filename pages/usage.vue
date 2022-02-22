@@ -12,6 +12,9 @@
           >３スッテプであなたの価値観マップが出来上がります。</span
         >
       </p>
+      <p class="text-xs font-bold">
+        スマホ/タブレットでは画面を横にしていただくと、マップの表示がより見やすくなります。
+      </p>
       <div class="imgBox1">
         <img class="w-1/2" src="~/assets/images/image01.png" alt="" />
       </div>
