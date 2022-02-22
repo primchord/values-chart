@@ -35,5 +35,6 @@ $messegeall .= "　E-mail：contact@value.chord4me.info\n";
 
 $success1 = mb_send_mail($mail_to, $sub1, $messegeall, "From:" . $mail);
 $success2 = mb_send_mail($mail, $sub1, $messegeall, "From:" . $mail_to);
-header('Content-type: application/json');
-echo json_encode("送信が完了しました！");
+// header('Content-type: application/json');
+header("Content-type: text/plain; charset=UTF-8");
+echo "送信が完了しました！";

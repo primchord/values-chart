@@ -1,5 +1,6 @@
 <template>
-  <div class="md:mt-10 max-w-screen-md mx-8 md:mx-auto px-5 mt-7">
+  <div class="md:mt-10 max-w-screen-md mx-8 md:mx-auto md:px-10 lg:px-0">
+    <!-- <div class="md:mt-10 max-w-screen-md mx-8 md:mx-auto px-5 mt-7"> -->
     <section>
       <h2 class="text-2xl">価値観の言語化、できていますか？</h2>
       <p class="mb-5">

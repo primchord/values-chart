@@ -7,10 +7,19 @@
       <li>
         <div class="flex items-center">
           <span class="w-5 h-5 bg-gray-600 rounded-full"></span>
+          <h5 class="ml-4 font-bold text-gray-600">1.2.0v</h5>
+        </div>
+        <div class="mb-4 ml-12">
+          <p class="text-sm text-gray-500">2022/02/22 お問い合わせページ追加</p>
+        </div>
+      </li>
+      <li>
+        <div class="flex items-center">
+          <span class="w-5 h-5 bg-gray-600 rounded-full"></span>
           <h5 class="ml-4 font-bold text-gray-600">1.1.0v</h5>
         </div>
         <div class="mb-4 ml-12">
-          <p class="text-sm text-gray-500">2022/02/22 SNSシェアボタン追加</p>
+          <p class="text-sm text-gray-500">2022/02/20 SNSシェアボタン追加</p>
         </div>
       </li>
       <li>

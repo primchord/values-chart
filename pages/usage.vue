@@ -1,5 +1,5 @@
 <template>
-  <div class="md:mt-10 max-w-screen-md mx-8 md:mx-auto">
+  <div class="md:mt-10 max-w-screen-md mx-8 md:mx-auto md:px-10 lg:px-0">
     <section>
       <h2 class="text-2xl">使い方は簡単です！</h2>
       <ol class="mb-5">
@@ -16,16 +16,31 @@
         スマホ/タブレットでは画面を横にしていただくと、マップの表示がより見やすくなります。
       </p>
       <div class="imgBox1">
-        <img class="w-1/2" src="~/assets/images/image01.png" alt="" />
+        <img
+          class="w-1/2"
+          src="~/assets/images/image01.png"
+          alt="アプリ使い方画像-1"
+        />
       </div>
       <div class="imgBox2">
-        <img class="w-1/2" src="~/assets/images/image03.png" alt="" />
+        <img
+          class="w-1/2"
+          src="~/assets/images/image03.png"
+          alt="アプリ使い方画像-2"
+        />
+        <p>
+          <span class="font-bold mark"
+            >※価値観と価値観の間は半角もしくは全角スペースで区切ってください</span
+          >
+        </p>
       </div>
       <div class="imgBox3">
-        <img class="w-1/2" src="~/assets/images/image04.png" alt="" />
-        <p class="text-xs">
-          ※マップ下部のボタンでグループの表示/非表示が切り替えられます
-        </p>
+        <img
+          class="w-1/2"
+          src="~/assets/images/image04.png"
+          alt="アプリ使い方画像-3"
+        />
+        <p>※マップ下部のボタンでグループの表示/非表示が切り替えられます</p>
       </div>
     </section>
     <section class="mt-14">
@@ -37,7 +52,11 @@
         <li>各種画像形式でダウンロード</li>
       </ol>
       <div class="imgBox4">
-        <img class="w-1/2" src="~/assets/images/image05.png" alt="" />
+        <img
+          class="w-1/2"
+          src="~/assets/images/image05.png"
+          alt="アプリのオプション操作画像"
+        />
       </div>
     </section>
     <section class="mt-14">
@@ -73,7 +92,7 @@ ol {
 }
 li {
   margin-bottom: 0.5rem;
-  list-style-type: number;
+  list-style-type: decimal;
   list-style-position: inside;
 }
 

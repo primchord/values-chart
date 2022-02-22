@@ -99,24 +99,33 @@ export default {
       this.inputdata = false
       this.makesure = true
     },
-    clickbtn_send() {
+    async clickbtn_send() {
       const params = new URLSearchParams()
       params.append('mailarea', this.mailarea)
       params.append('namearea', this.namearea)
       params.append('textboxarea', this.textboxarea)
-      fetch('/mail.php', {
+      await fetch('mail.php', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(params),
+        // headers: {
+        //   'Content-Type': 'application/json',
+        // },
+        body: params,
       })
         .then((response) => {
-          alert(response.data)
+          response.text().then(alert)
+          if (response.text() === '送信が完了しました！') {
+            this.namearea = ''
+            this.mailarea = ''
+            this.textboxarea = ''
+          }
+
           document.location = './'
         })
         .catch((error) => {
           alert(error, 'エラーが発生しました')
+          this.namearea = ''
+          this.mailarea = ''
+          this.textboxarea = ''
           document.location = './'
         })
     },
